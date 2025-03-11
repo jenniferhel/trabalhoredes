@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabela de Conexões</title>
+  <style>
+    table {
+      width: 80%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 8px 12px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    h2 {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h2>Tabela de Conexões</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Switch Port</th>
+        <th>Patch Panel Port</th>
+        <th>Dispositivo</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for conn in connections %}
+      <tr>
+        <td>{{ conn[0] }}</td>
+        <td>{{ conn[1] }}</td>
+        <td>{{ conn[2] }}</td>
+        <!-- Se não houver dispositivo, exibe "Desconhecido" -->
+        <td>{{ conn[3] if conn[3] else "Desconhecido" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
